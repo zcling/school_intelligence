@@ -85,11 +85,16 @@
                     timeout: 1000,        //请求超时时间，毫秒
                     async: true,
                     success: function (result) {
-                        if (result != "500" && result == "success") {
+                        if (result == "success") {
                             layer.msg("登陆成功", {icon: 1});
                             setTimeout(function () {
                                 window.location.href = '/User/logSucess';
                             }, 1000)
+                        } else {
+                            layer.msg("用户名或密码错误！", {icon: 2});
+                            setTimeout(function () {
+                                window.location.reload();//更新表单
+                            },2000)
                         }
                     },
                     error: function () {
