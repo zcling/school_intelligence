@@ -1,0 +1,39 @@
+#suobox {
+    display: none;
+    text-align: center;
+}
+
+#suobox img {
+    width: 15%;
+    height: 15%;
+    margin-top: 20px;
+    border-radius: 50%;
+}
+
+.logo {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.logo a {
+    list-style: none;
+    color: #5FB878;
+}
+
+.logo span {
+    font-size: 24px;
+}
+
+.layui-layout-left li {
+    margin: 0 15px;
+}
+
+.layui-layout-left .layui-nav-item a {
+    color: black;
+}
+
+.layui-layout-left .layui-nav-item a:hover {
+    color: #000;
+}
