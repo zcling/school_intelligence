@@ -62,7 +62,6 @@ public class WeatherUtil {
             map.put("wind_dir", jsonData3.getString("wind_dir").toString());
             map.put("cond_txt", jsonData3.getString("cond_txt").toString());
             map.put("cond_code", jsonData3.getString("cond_code").toString());
-            System.out.println(map);
         } catch (SocketTimeoutException e) {
             System.out.println("连接超时");
         } catch (FileNotFoundException e) {
@@ -173,13 +172,16 @@ public class WeatherUtil {
     public static void main(String[] args) {
         try {
             //测试获取实时天气1(包含风况，湿度)
-            Map<String, Object> map = getTodayWeather1("北京");
+            Map<String, Object> map = getTodayWeather1("成都");
 
-            System.out.println(map);
+            System.out.println("测试获取实时天气1(包含风况，湿度)" + "\n" + map);
 
+            System.out.println();
+            System.out.println();
+            System.out.println();
             //测试获取实时天气2(包含天气，温度范围)
             Map<String, Object> map2 = getTodayWeather2("101110908"); //这块填的是城市编码
-            System.out.println(map2.get("city") + "\t" + map2.get("temp1")
+            System.out.println("测试获取实时天气2(包含天气，温度范围)" + "\n" + map2.get("city") + "\t" + map2.get("temp1")
                     + "\t" + map2.get("temp2") + "\t" + map2.get("weather")
                     + "\t" + map2.get("ptime"));
 

@@ -14,6 +14,7 @@
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
+    <input id="hide" hidden type="text"/>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <div class="layui-header">
         <ul class="layui-nav layui-layout-right">
@@ -54,13 +55,32 @@
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <div title="进入网站首页" class="logo">
-                    <a href="http://www.fangte.com/" target="_blank"><span>智慧项目比赛</span></a>
+                    <a href="http://www.qm950.com/" target="_blank"><span>智慧校园web</span></a>
                 </div>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;"><i class="layui-icon layui-icon-release"></i>
-                        &nbsp;<span>图形码管理</span></a>
+                    <a href="javascript:;"><i class="layui-icon layui-icon-engine"></i>
+                        &nbsp;<span>设备操作</span></a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;">
+                                &nbsp;<span>风速</span></a>
+                        </dd>
+                        <dd><a href="javascript:;" target="demo">
+                                &nbsp;<span>风向</span></a>
+                        </dd>
+                        <dd><a href="javascript:;" target="demo">
+                                &nbsp;<span>温湿度</span></a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="layui-icon layui-icon-video"></i>
+                        &nbsp;<span>视频监控</span></a>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="layui-icon layui-icon-cellphone"></i>
+                        &nbsp;<span>条码操作</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/code" target="demo">
                                 &nbsp;<span>二维码</span></a>
                         </dd>
                         <dd><a href="javascript:;" target="demo">
@@ -69,28 +89,26 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;"><i class="layui-icon layui-icon-release"></i>
-                        &nbsp;<span>天气检测</span></a>
+                    <a href="javascript:;"><i class="layui-icon layui-icon-set-fill"></i>
+                        &nbsp;<span>系统设置</span></a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">
-                                &nbsp;<span>风向</span></a>
+                        <dd><a href="" target="demo">
+                                &nbsp;<span>系统信息</span></a>
                         </dd>
-                        <dd><a href="javascript:;" target="demo">
-                                &nbsp;<span>风速</span></a>
+                        <dd><a href="" target="demo">
+                                &nbsp;<span>网站网络设置</span></a>
+                        </dd>
+                        <dd><a href="" target="demo">
+                                &nbsp;<span>界面设置</span></a>
+                        </dd>
+                        <dd><a href="" target="demo">
+                                &nbsp;<span>实时监控设置</span></a>
                         </dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;"><i class="layui-icon layui-icon-set-fill"></i>
-                        &nbsp;<span>系统设置</span></a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="/User/User?username=" target="demo">
-                                &nbsp;<span>网站网络设置</span></a>
-                        </dd>
-                        <dd><a href="/User/Password?username=" target="demo">
-                                &nbsp;<span>修改密码</span></a>
-                        </dd>
-                    </dl>
+                    <a href="javascript:;"><i class="layui-icon layui-icon-survey"></i>
+                        &nbsp;<span>系统帮助</span></a>
                 </li>
             </ul>
         </div>

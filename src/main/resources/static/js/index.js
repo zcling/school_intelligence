@@ -1,5 +1,6 @@
 //进入全屏
 function requestFullScreen() {
+
     var de = document.documentElement;
     if (de.requestFullscreen) {
         de.requestFullscreen();
