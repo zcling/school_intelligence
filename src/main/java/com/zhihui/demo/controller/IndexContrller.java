@@ -22,4 +22,9 @@ public class IndexContrller {
         return "controller/QRcode";
     }
 
+    @GetMapping("/barcode")
+    public String barcode(){
+        return "controller/JsBarcode";
+    }
+
 }

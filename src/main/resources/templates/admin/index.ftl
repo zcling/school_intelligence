@@ -83,7 +83,7 @@
                         <dd><a href="/code" target="demo">
                                 &nbsp;<span>二维码</span></a>
                         </dd>
-                        <dd><a href="javascript:;" target="demo">
+                        <dd><a href="/barcode" target="demo">
                                 &nbsp;<span>条码</span></a>
                         </dd>
                     </dl>

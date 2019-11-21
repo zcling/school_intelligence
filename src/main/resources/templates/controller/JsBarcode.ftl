@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>二维码</title>
+    <title>条码</title>
     <script src="/static/js/jquery.min.js"></script>
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/static/layui-v2.5.5/layui/css/layui.css" media="all">
     <!-- 引入组件库 -->
-    <script src="/static/js/jquery.qrcode.min.js" charset="UTF-8"></script>
+    <script src="/static/js/JsBarcode.all.js" charset="UTF-8"></script>
     <script src="/static/layui-v2.5.5/layui/layui.js" charset="UTF-8"></script>
 </head>
 <body class="layui-layout-body">
@@ -16,16 +16,16 @@
         <div class="layui-row layui-col-space15">
             <div class="layui-col-md12">
                 <div class="layui-card">
-                    <div class="layui-card-header">二维码操作</div>
+                    <div class="layui-card-header">条码操作</div>
                     <div class="layui-card-body">
                         <div class="layui-form-item">
-                            <label class="layui-form-label">二维码内容</label>
+                            <label class="layui-form-label">条码内容</label>
                             <div class="layui-input-inline">
                                 <input type="text" required lay-verify="required"
                                        placeholder="请输入内容" class="layui-input"
                                        id="text">
                             </div>
-                            <div class="layui-form-mid layui-word-aux">二维码扫描出的内容</div>
+                            <div class="layui-form-mid layui-word-aux">条码扫描出的内容</div>
                         </div>
                         <div class="layui-form-item">
                             <div class="layui-input-block">
@@ -35,7 +35,7 @@
                         </div>
                         <div class="layui-form-item">
                             <div class="layui-input-block">
-                                <div id="qrcode"></div>
+                                <canvas id="barcode"></canvas>
                             </div>
                         </div>
                     </div>
@@ -49,45 +49,23 @@
         var element = layui.element,
             layer = layui.layer;
 
-        var code = document.getElementById("qrcode");
-        //生成二维码
+        var barcode = document.getElementById("JsBarcode");
+
+        //生成条码
         $('#sumbit').on('click', function () {
+
             if ($('#text').val() === "" || $('#text').val() == null) {
-                code.style.display = 'none';
+                barcode.style.display = 'none';
                 layer.msg("内容为空")
             } else {
-                $('#qrcode').qrcode({render: 'canvas', text: utf16to8($('#text').val()), width: 260, height: 260});
-                code.style.display = "block";
+                JsBarcode("#barcode", $('#text').val());
+                // barcode.style.display = "block";
             }
         });
         $('#reset').on('click', function () {
             $('#text').val("");
-            code.style.display = "none";
+            barcode.style.display = "none";
         });
-
-
-
-
-        function utf16to8(str) {
-            var out, i, len, c;
-            out = "";
-            len = str.length;
-            for(i = 0; i < len; i++) {
-                c = str.charCodeAt(i);
-                if ((c >= 0x0001) && (c <= 0x007F)) {
-                    out += str.charAt(i);
-                } else if (c > 0x07FF) {
-                    out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
-                    out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));
-                    out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
-                } else {
-                    out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));
-                    out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
-                }
-            }
-            return out;
-        }
-
     });
 
 </script>
