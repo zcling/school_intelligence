@@ -36,11 +36,15 @@
                             <div class="layui-input-block">
                                 <button class="layui-btn" id="sumbit">生成</button>
                                 <button class="layui-btn layui-btn-primary" id="reset">重置</button>
+                                <button class="layui-btn layui-btn-normal" id="save">保存
+                                </button>
                             </div>
                         </div>
                         <div class="layui-form-item">
                             <div class="layui-input-block">
                                 <div id="qrcode"></div>
+                                <div id="qrcode1" hidden></div>
+                                <input type="text" hidden id="bit"/>
                             </div>
                         </div>
                     </div>
@@ -54,21 +58,34 @@
         var element = layui.element,
             layer = layui.layer;
 
-        var code = document.getElementById("qrcode");
         //生成二维码
         $('#sumbit').on('click', function () {
             if ($('#text').val() === "" || $('#text').val() == null) {
-                code.style.display = 'none';
                 layer.msg("内容为空")
             } else {
-                jQuery('#qrcode').qrcode(utf16to8($('#text').val()));
-                code.style.display = "block";
+                jQuery('#qrcode').qrcode($('#text').val());
+                $('#bit').val("1")
             }
         });
         $('#reset').on('click', function () {
             $('#text').val("");
+            $('#bit').val("0");
             window.location.reload();
         });
+        $('#save').on('click', function () {
+            console.log($('#bit').val());
+            if ($('#bit').val() === '0' || $('#bit').val() === '') {
+                layer.msg("未生成二维码")
+            } else {
+                var qrcode = jQuery('#qrcode1').qrcode($('#text').val()).hide();
+                var canvas = qrcode.find('canvas').get(0);
+                var a = document.createElement("a");
+                a.href = canvas.toDataURL("image/jpg");
+                a.download = Date.parse(new Date()) + ".jpg";
+                a.click();
+            }
+        });
+
 
         //中文转码，防止输入中文内容，扫描出乱码
         function utf16to8(str) {
@@ -92,6 +109,7 @@
         }
 
     });
+
 
 </script>
 </html>
