@@ -9,6 +9,11 @@
     <!-- 引入组件库 -->
     <script src="/static/js/jquery.qrcode.min.js" charset="UTF-8"></script>
     <script src="/static/layui-v2.5.5/layui/layui.js" charset="UTF-8"></script>
+    <style>
+        #qrcode {
+            margin: 30px auto;
+        }
+    </style>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -25,7 +30,7 @@
                                        placeholder="请输入内容" class="layui-input"
                                        id="text">
                             </div>
-                            <div class="layui-form-mid layui-word-aux">二维码扫描出的内容</div>
+                            <div class="layui-form-mid layui-word-aux">可输入任意内容</div>
                         </div>
                         <div class="layui-form-item">
                             <div class="layui-input-block">
@@ -56,33 +61,31 @@
                 code.style.display = 'none';
                 layer.msg("内容为空")
             } else {
-                $('#qrcode').qrcode({render: 'canvas', text: utf16to8($('#text').val()), width: 260, height: 260});
+                jQuery('#qrcode').qrcode(utf16to8($('#text').val()));
                 code.style.display = "block";
             }
         });
         $('#reset').on('click', function () {
             $('#text').val("");
-            code.style.display = "none";
+            window.location.reload();
         });
 
-
-
-
+        //中文转码，防止输入中文内容，扫描出乱码
         function utf16to8(str) {
             var out, i, len, c;
             out = "";
             len = str.length;
-            for(i = 0; i < len; i++) {
+            for (i = 0; i < len; i++) {
                 c = str.charCodeAt(i);
                 if ((c >= 0x0001) && (c <= 0x007F)) {
                     out += str.charAt(i);
                 } else if (c > 0x07FF) {
                     out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
-                    out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));
-                    out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+                    out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
                 } else {
-                    out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));
-                    out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+                    out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
                 }
             }
             return out;

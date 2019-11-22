@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhihui.demo.dao.CodeDAO">
+    <resultMap id="map" type="com.zhihui.demo.model.Code">
+        <result column="id" property="id"/>
+        <result column="img_path" property="imgPath"/>
+        <result column="img_name" property="imgName"/>
+        <result column="img_type" property="imgType"/>
+        <result column="create_id" property="create_id"/>
+        <result column="member_id" property="member_id"/>
+        <result column="create_time" property="create_time"/>
+        <result column="member_time" property="member_time"/>
+    </resultMap>
+    <insert id="saveCode" parameterType="Code" useGeneratedKeys="true">
+        insert into
+        code(img_path,img_name,img_type,create_id,member_id,create_time,member_time)
+        values
+        (#{imgPath},#{imgName},#{imgType},#{create_id},#{member_id},#{create_time},#{member_time})
+    </insert>
+</mapper>
