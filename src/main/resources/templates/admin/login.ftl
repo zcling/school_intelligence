@@ -44,11 +44,6 @@
                 <div id="slider"></div>
             </div>
             <div class="layui-form-item">
-                <input type="checkbox" title="记住密码" lay-skin="primary">
-                <a href="/forget"
-                   style="color: #009f95;display: block;text-align: right;margin-top: -20px">忘记密码？</a>
-            </div>
-            <div class="layui-form-item">
                 <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="formDemo">登 入</button>
             </div>
             <div class="layui-form-item" style="margin-right: 0;">

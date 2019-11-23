@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>智慧项目后台管理</title>
+    <title>智慧校园web后台管理</title>
     <!--  引入jquery  -->
     <script src="../../static/js/jquery.min.js"></script>
     <!-- 引入样式 -->
@@ -117,6 +117,11 @@
     <#--  主体内容  -->
     <div class="layui-body">
         <iframe name="demo" src="/master" frameborder="0" id="iframeid" height="99%" width="100%"></iframe>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © 使用的layui前端框架 - 底部固定区域
     </div>
     <#-- 锁屏   -->
     <div id="suobox">

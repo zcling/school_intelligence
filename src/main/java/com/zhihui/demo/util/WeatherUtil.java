@@ -49,18 +49,18 @@ public class WeatherUtil {
             map.put("location", jsonData1.getString("location").toString());
             map.put("parent_city", jsonData1.getString("parent_city").toString());
             map.put("admin_area", jsonData1.getString("admin_area").toString());
-            map.put("cnty", jsonData1.getString("cnty").toString());
+            map.put("cnty", jsonData1.getString("cnty").toString());//国际
 
             String time = jsonData2.getString("loc").toString();
 
             String week = strToDate(time);
 
-            map.put("week", week);
-            map.put("time", jsonData2.getString("loc").toString());
+            map.put("week", week);//星期
+            map.put("time", jsonData2.getString("loc").toString());//发布时间
 
             map.put("tmp", jsonData3.getString("tmp").toString());
             map.put("wind_dir", jsonData3.getString("wind_dir").toString());
-            map.put("cond_txt", jsonData3.getString("cond_txt").toString());
+            map.put("cond_txt", jsonData3.getString("cond_txt").toString());//天气状况
             map.put("cond_code", jsonData3.getString("cond_code").toString());
         } catch (SocketTimeoutException e) {
             System.out.println("连接超时");

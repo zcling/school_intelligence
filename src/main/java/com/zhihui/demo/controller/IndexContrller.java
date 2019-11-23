@@ -27,4 +27,9 @@ public class IndexContrller {
         return "controller/JsBarcode";
     }
 
+    @GetMapping("/Register")
+    public String register(){
+        return "admin/Register";
+    }
+
 }

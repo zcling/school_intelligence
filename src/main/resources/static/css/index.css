@@ -37,3 +37,6 @@
 .layui-layout-left .layui-nav-item a:hover {
     color: #000;
 }
+.layui-footer{
+    text-align: center;
+}
