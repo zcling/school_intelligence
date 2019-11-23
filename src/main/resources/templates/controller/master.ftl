@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="/static/layui-v2.5.5/layui/css/layui.css" media="all">
     <!-- 引入组件库 -->
     <script src="/static/layui-v2.5.5/layui/layui.js" charset="UTF-8"></script>
-    <style>
-
-    </style>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">

@@ -1,28 +1,3 @@
-//进入全屏
-function requestFullScreen() {
-
-    var de = document.documentElement;
-    if (de.requestFullscreen) {
-        de.requestFullscreen();
-    } else if (de.mozRequestFullScreen) {
-        de.mozRequestFullScreen();
-    } else if (de.webkitRequestFullScreen) {
-        de.webkitRequestFullScreen();
-    }
-}
-
-//退出全屏
-function exitFullscreen() {
-    var de = document;
-    if (de.exitFullscreen) {
-        de.exitFullscreen();
-    } else if (de.mozCancelFullScreen) {
-        de.mozCancelFullScreen();
-    } else if (de.webkitCancelFullScreen) {
-        de.webkitCancelFullScreen();
-    }
-}
-
 $(function () {
     //锁屏区域
     $('#jiesuo').click(function () {
@@ -37,10 +12,39 @@ $(function () {
         }
     });
 
-    //缩放区域
+    //进入页面全屏
+    var isDonw = true;  //定义一个标志位
+    $('.kit-side-quan').click(function () {
+        //判断isDonw的状态
+        if (isDonw) {//全屏
+            var de = document.documentElement;
+            if (de.requestFullscreen) {
+                de.requestFullscreen();
+            } else if (de.mozRequestFullScreen) {
+                de.mozRequestFullScreen();
+            } else if (de.webkitRequestFullScreen) {
+                de.webkitRequestFullScreen();
+            }
+            //修改标志位
+            isDonw = false;
+        } else {//退出
+            var de = document;
+            if (de.exitFullscreen) {
+                de.exitFullscreen();
+            } else if (de.mozCancelFullScreen) {
+                de.mozCancelFullScreen();
+            } else if (de.webkitCancelFullScreen) {
+                de.webkitCancelFullScreen();
+            }
+            //修改标志位
+            isDonw = true;
+        }
+    });
+
+    //侧边栏缩放区域
     var isShow = true;  //定义一个标志位
     $('.kit-side-fold').click(function () {
-        //判断isshow的状态
+        //判断ishow的状态
         if (isShow) {//缩
             $('.kit-side-fold i').attr('class', 'layui-icon layui-icon-spread-left');
             $('.layui-side.layui-bg-black').width(0); //设置宽度
@@ -94,7 +98,6 @@ layui.use(['element', 'layer'], function () {
             move: false,
             resize: false,
             content: $('#suobox')  //调到新增页面
-
         });
     });
 });

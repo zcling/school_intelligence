@@ -44,7 +44,7 @@
                 <a href="javascript:;" title="刷新" class="kit-side-refresh"><i class="layui-icon layui-icon-refresh"></i></a>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:;" title="全屏" onclick="requestFullScreen()"><i
+                <a href="javascript:;" title="全屏" class="kit-side-quan"><i
                             class="layui-icon layui-icon-layer"></i></a>
             </li>
         </ul>
@@ -130,5 +130,5 @@
     </div>
 </div>
 </body>
-<script src="/static/js/index.js" charset="UTF-8"></script>
+<script src="/static/js/demo/index.js" charset="UTF-8"></script>
 </html>
